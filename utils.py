@@ -15,7 +15,10 @@ ZOOM = 1e9
 
 
 def get_argparse():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='More information about research read there: '
+                                                 'https://github.com/Brutalfacepalm/sberintern'
+                                                 'Research this pytorch model read there: '
+    'https://colab.research.google.com/drive/1UmVPYV3gCJUPoO-uTlLq3FpMClTzlblx#scrollTo=CHb3WbDTjLXI&uniqifier=1')
     parser.add_argument('-i', '--input_file', dest='input_file',
                         type=str, default='data.csv', nargs='?',
                         help='Name of file with data in CSV format. Default: date.csv')
