@@ -18,7 +18,7 @@ Loss - MSE(L1Loss) \
 Оптимизация разбита по слоям, один для BiLSTM+Conv1D и 12 для линейных голов. \
 Оптимизаторы - AdamW, LR = 0.001(0.0008), weight_decay = 0.1(0.3) \
 Отдельно для оптимизатора на BiLSTM+Conv1D Scheduler на основе CosineAnnealingWarmRestarts: в течении 20 эпох понижение LR в 100 раз, каждые 60 эпох понижение границ для CosineAnnealingWarmRestarts в 2 раза. \
-Оптимизаторы для голов без шедулера. \
+Оптимизаторы для голов без шедулера. 
 
 #### Веса можно скачать тут: [Обученная модель](https://drive.google.com/file/d/164Rkvu7Ej3x5C9efL6Dp2ocsNDnaYGsK/view?usp=sharing) и [StandartScaler](https://drive.google.com/file/d/1lEVf2yECUB-022q-6O_KHxd_6bsFGO8I/view?usp=sharing) ####
 
