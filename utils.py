@@ -1,8 +1,11 @@
+from os.path import exists
+
 import argparse
 import pandas as pd
 import numpy as np
 import holidays
 import torch
+import gdown
 
 
 DEL = ';'
@@ -307,6 +310,15 @@ def get_min_stab_value_for_period(data, model, scaler, ru_holidays, month_pred,
         return int((y_pred_ext[VALUES_COLUMN].min())*scale_coef)
     else:
         return int((y_pred[VALUES_COLUMN].min())*scale_coef)
+
+
+def download_file_from_google_drive(id, destination):
+    url = f'https://drive.google.com/uc?id={id}'
+    gdown.download(url, destination, quiet=False)
+
+
+def get_file(path):
+    return exists(path)
 
 
 if __name__ == "__main__":

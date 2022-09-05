@@ -2,6 +2,7 @@ import torch
 from torch import nn, autograd
 import torch.nn.functional as F
 import pickle
+from utils import get_file, download_file_from_google_drive
 
 
 INPUT_SIZE = 75
@@ -127,8 +128,15 @@ class BaselineModelLSTM(nn.Module):
 
 
 def get_scaler(path_scaler):
-    with open(path_scaler, 'rb') as f:
-        scaler = pickle.load(file=f)
+    if get_file(path_scaler):
+        with open(path_scaler, 'rb') as f:
+            scaler = pickle.load(file=f)
+    else:
+        file_id = '1lEVf2yECUB-022q-6O_KHxd_6bsFGO8I'
+        destination = './scaler_state'
+        download_file_from_google_drive(file_id, destination)
+        with open(path_scaler, 'rb') as f:
+            scaler = pickle.load(file=f)
     return scaler
 
 
@@ -142,7 +150,13 @@ def get_model(path_model):
                               bidirectional=BID, type_rnn=TYPE_RNN, heads=HEADS,
                               conv_layers=CONV_LAYERS, kernel_conv=KERNEL_CONV)
     model.to(DEVICE)
-    model.load_state_dict(torch.load(path_model, map_location=torch.device(DEVICE)))
+    if get_file(path_model):
+        model.load_state_dict(torch.load(path_model, map_location=torch.device(DEVICE)))
+    else:
+        file_id = '164Rkvu7Ej3x5C9efL6Dp2ocsNDnaYGsK'
+        destination = './model_state'
+        download_file_from_google_drive(file_id, destination)
+        model.load_state_dict(torch.load(path_model, map_location=torch.device(DEVICE)))
 
     return model
 
