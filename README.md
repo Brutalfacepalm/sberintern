@@ -1,7 +1,7 @@
 # sberintern
 
 #### Эксперименты с SARIMA и библиотекой SKtime лежат в блакнотике Sarim_SKtime.ipynb ####
-#### Эксперименты с нейронными сетями лежат на ['Google Collab'](https://colab.research.google.com/drive/1UmVPYV3gCJUPoO-uTlLq3FpMClTzlblx#scrollTo=UHs19f9dd3Zt&uniqifier=1) ####
+#### Эксперименты с нейронными сетями лежат на [Google Collab](https://colab.research.google.com/drive/1UmVPYV3gCJUPoO-uTlLq3FpMClTzlblx#scrollTo=UHs19f9dd3Zt&uniqifier=1) ####
 
 #### Итогова модель: ####
 	Генерируется различные фичи, по типу MA, EMA и тд, всего их 75 штук. Для генерации фичей нужен запас данных в 91 день. Для работы модели нужны 31 день, в качестве исторических данных и 30 дней для прогноза на каждый день. Для простоты принимается что в каждом месяце 30 дней.
